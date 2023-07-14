@@ -17,5 +17,6 @@ phases:
       - echo build completed
 artifacts:
   files:
+    - appspec.yml
+    - node_modules/
     - '**/*'
-  discard-paths: yes
