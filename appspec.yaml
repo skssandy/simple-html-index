@@ -3,10 +3,10 @@ Resources:
   - myLambdaFunction:
       Type: AWS::Lambda::Function
       Properties:
-        Name: "mop-testing"
-        Alias: "test"
-        CurrentVersion: "1"
-        TargetVersion: "1"
+        Name: "new-mop-test"
+        #Alias: "test"
+        #CurrentVersion: "1"
+        #TargetVersion: "1"
 #Hooks:
  # - BeforeAllowTraffic: "LambdaFunctionToValidateBeforeTrafficShift"
   #- AfterAllowTraffic: "LambdaFunctionToValidateAfterTrafficShift"
