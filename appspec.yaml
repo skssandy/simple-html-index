@@ -1,8 +1,12 @@
 version: 0.0
 Resources:
-  - TargetService:
+  - myLambdaFunction:
       Type: AWS::Lambda::Function
       Properties:
-        Name: mop-testing
-        Alias: live
-        CurrentVersion: 1
+        Name: "mop-testing"
+        Alias: "test"
+        CurrentVersion: "1"
+        #TargetVersion: "2"
+Hooks:
+  - BeforeAllowTraffic: "LambdaFunctionToValidateBeforeTrafficShift"
+  - AfterAllowTraffic: "LambdaFunctionToValidateAfterTrafficShift"
