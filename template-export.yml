@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Start from scratch starter project
+Transform: AWS::Serverless-2016-10-31
+Globals:
+  Function:
+    PermissionsBoundary:
+      Fn::Sub: arn:${AWS::Partition}:iam::${AWS::AccountId}:policy/${AppId}-${AWS::Region}-PermissionsBoundary
+Parameters:
+  AppId:
+    Type: String
+Resources:
+  helloFromLambdaFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: s3://aws-us-east-1-710198852569-sample-pipe/2f96e2abafe6db19385055a2e8715fc4
+      Handler: src/handlers/hello-from-lambda.helloFromLambdaHandler
+      Runtime: nodejs18.x
+      MemorySize: 128
+      Timeout: 60
+      Description: A Lambda function that returns a static string.
+      Policies:
+      - AWSLambdaBasicExecutionRole
